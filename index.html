@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Marcador - Copa Aeropuerto 2025</title>
+  <style>
+    body {
+      background: #222;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 100vh;
+      font-size: 24px;
+    }
+    .team {
+      text-align: center;
+    }
+    .name {
+      font-size: 28px;
+      font-weight: bold;
+      margin: 10px 0;
+      background: rgba(0,0,0,0.5);
+      padding: 6px 12px;
+      border-radius: 6px;
+      width: 200px;
+      box-sizing: border-box;
+    }
+    .score {
+      font-size: 60px;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+    button {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      margin: 5px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .vs {
+      font-size: 40px;
+      color: #ffcc00;
+      margin: 0 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="team">
+  <div class="name">Equipo A</div>
+  <div class="score">0</div>
+  <button onclick="addGoal(1)">+ Gol</button>
+</div>
+
+<div class="vs">VS</div>
+
+<div class="team">
+  <div class="name">Equipo B</div>
+  <div class="score">0</div>
+  <button onclick="addGoal(2)">+ Gol</button>
+</div>
+
+<script>
+  let score1 = 0;
+  let score2 = 0;
+
+  function addGoal(team) {
+    if (team === 1) {
+      score1++;
+      document.querySelector('.team:nth-child(1) .score').innerText = score1;
+    } else {
+      score2++;
+      document.querySelector('.team:nth-child(3) .score').innerText = score2;
+    }
+  }
+
+  // Para resetear desde consola (opcional)
+  window.resetScore = function() {
+    score1 = 0;
+    score2 = 0;
+    document.querySelector('.team:nth-child(1) .score').innerText = '0';
+    document.querySelector('.team:nth-child(3) .score').innerText = '0';
+  };
+</script>
+
+</body>
+</html>
